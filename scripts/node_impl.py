@@ -154,7 +154,7 @@ def main():
     fig, ax = plt.subplots(figsize=(5, 2.5))
     ax.plot(np.arange(1, args.epochs + 1), history["train_losses"], label="Training Loss")
     ax.plot(np.arange(1, args.epochs + 1), history["test_losses"], label="Testing Loss")
-    matlab_like_axes(ax, xlabel_text=r"Time", ylabel_text=r"Loss", title_text="Neural ODE Training and Testing Loss")
+    matlab_like_axes(ax, xlabel_text=r"Epochs", ylabel_text=r"Loss", title_text="Neural ODE Training and Testing Loss")
     ax.legend()
     fig.tight_layout()
     fig.savefig(loss_pdf, format="pdf", bbox_inches="tight")
@@ -166,8 +166,8 @@ def main():
     ax.plot(np.arange(1, args.epochs + 1), history["test_accuracies"], label="Testing Accuracy")
     matlab_like_axes(
         ax,
-        xlabel_text=r"Time",
-        ylabel_text=rf"Accuracy (\%, tol={int(args.tol_acc * 100)}\%)",
+        xlabel_text=r"Epochs",
+        ylabel_text=rf"Accuracy (%)",
         title_text="Neural ODE Training and Testing Accuracy",
     )
     ax.legend()
@@ -180,7 +180,7 @@ def main():
     ax.scatter(y_true_test, y_pred_test, alpha=0.5, label="Predicted vs Actual")
     mn = min(y_true_test.min(), y_pred_test.min())
     mx = max(y_true_test.max(), y_pred_test.max())
-    ax.plot([mn, mx], [mn, mx], label="Ideal Line")
+    ax.plot([mn, mx], [mn, mx], color="red", linewidth=1.3, label="Ideal Line")
     matlab_like_axes(ax, xlabel_text=r"Actual Power (kW)", ylabel_text=r"Predicted Power (kW)", title_text="Neural ODE: Actual vs Predicted")
     ax.legend()
     fig.tight_layout()
