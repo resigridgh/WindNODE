@@ -1,0 +1,26 @@
+[project]
+name = "windnode"
+version = "0.1.0"
+description = "Wind turbine power prediction using Neural ODE in PyTorch"
+readme = "README.md"
+requires-python = ">=3.12"
+
+authors = [
+  { name = "Saiful" }
+]
+
+dependencies = [
+  "torch",
+  "numpy",
+  "pandas",
+  "matplotlib",
+  "scikit-learn",
+  "onnx"
+]
+
+[build-system]
+requires = ["hatchling>=1.24.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/windnode"]

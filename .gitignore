@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+*.egg-info/
+dist/
+build/
+
+# Media
+media/
+*.mp4
+
+# System
+.DS_Store
+Thumbs.db
