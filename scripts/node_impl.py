@@ -151,7 +151,7 @@ def main():
     print(f"Test  RMSE : {final_test_eval['rmse']:.6f}")
 
     loss_pdf = output_dir / f"node_loss_curve_{ts}.pdf"
-    fig, ax = plt.subplots(figsize=(7, 4.5))
+    fig, ax = plt.subplots(figsize=(5, 2.5))
     ax.plot(np.arange(1, args.epochs + 1), history["train_losses"], label="Training Loss")
     ax.plot(np.arange(1, args.epochs + 1), history["test_losses"], label="Testing Loss")
     matlab_like_axes(ax, xlabel_text=r"Time", ylabel_text=r"Loss", title_text="Neural ODE Training and Testing Loss")
@@ -161,7 +161,7 @@ def main():
     plt.close(fig)
 
     acc_pdf = output_dir / f"node_accuracy_curve_{ts}.pdf"
-    fig, ax = plt.subplots(figsize=(7, 4.5))
+    fig, ax = plt.subplots(figsize=(5, 2.5))
     ax.plot(np.arange(1, args.epochs + 1), history["train_accuracies"], label="Training Accuracy")
     ax.plot(np.arange(1, args.epochs + 1), history["test_accuracies"], label="Testing Accuracy")
     matlab_like_axes(
@@ -176,12 +176,12 @@ def main():
     plt.close(fig)
 
     avp_pdf = output_dir / f"node_actual_vs_predicted_{ts}.pdf"
-    fig, ax = plt.subplots(figsize=(6, 6))
+    fig, ax = plt.subplots(figsize=(5, 2.5))
     ax.scatter(y_true_test, y_pred_test, alpha=0.5, label="Predicted vs Actual")
     mn = min(y_true_test.min(), y_pred_test.min())
     mx = max(y_true_test.max(), y_pred_test.max())
     ax.plot([mn, mx], [mn, mx], label="Ideal Line")
-    matlab_like_axes(ax, xlabel_text=r"Actual Power", ylabel_text=r"Predicted Power", title_text="Neural ODE: Actual vs Predicted")
+    matlab_like_axes(ax, xlabel_text=r"Actual Power (kW)", ylabel_text=r"Predicted Power (kW)", title_text="Neural ODE: Actual vs Predicted")
     ax.legend()
     fig.tight_layout()
     fig.savefig(avp_pdf, format="pdf", bbox_inches="tight")
@@ -199,11 +199,11 @@ def main():
     ).sort_values("wind speed (m/s)").reset_index(drop=True)
 
     comp_pdf = output_dir / f"node_power_prediction_comparison_{ts}.pdf"
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(5, 2.5))
     ax.scatter(plot_df["wind speed (m/s)"], plot_df["actual_power"], alpha=0.35, label="Real Power")
     ax.scatter(plot_df["wind speed (m/s)"], plot_df["predicted_power"], alpha=0.35, label="Predicted Power")
     ax.plot(plot_df["wind speed (m/s)"], plot_df["theoretical_power_curve (kwh)"], label="Theoretical Power")
-    matlab_like_axes(ax, xlabel_text=r"Time", ylabel_text=r"Power Production (kW)", title_text="Neural ODE Wind Power Prediction")
+    matlab_like_axes(ax, xlabel_text=r"Wind Speed (m/s)", ylabel_text=r"Power Production (kW)", title_text="Neural ODE Wind Power Prediction")
     ax.legend()
     fig.tight_layout()
     fig.savefig(comp_pdf, format="pdf", bbox_inches="tight")
