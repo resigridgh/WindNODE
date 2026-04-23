@@ -22,6 +22,15 @@ from .cnn import (
     export_cnn_onnx_model,
     load_and_preprocess_cnn_data,
     train_cnn_model,
+)
+
+from .lstm import (
+    LSTMDataBundle,
+    WindLSTMRegressor,
+    evaluate_lstm_model,
+    export_lstm_onnx_model,
+    load_and_preprocess_lstm_data,
+    train_lstm_model,
     check_onnx_model,
 )
 
@@ -30,21 +39,28 @@ __all__ = [
     "DEFAULT_TARGET_COL",
     "DataBundle",
     "CNNDataBundle",
+    "LSTMDataBundle",
     "NeuralODERegressor",
     "WindCNNRegressor",
+    "WindLSTMRegressor",
     "ODEFunc",
     "RK4Block",
     "evaluate_model",
     "evaluate_cnn_model",
+    "evaluate_lstm_model",
     "export_onnx_model",
     "export_cnn_onnx_model",
+    "export_lstm_onnx_model",
     "get_device",
     "load_and_preprocess_data",
     "load_and_preprocess_cnn_data",
+    "load_and_preprocess_lstm_data",
     "regression_accuracy_percent",
     "save_pickle",
     "set_seed",
     "train_model",
     "train_cnn_model",
+    "train_lstm_model",
     "check_onnx_model",
 ]
+
