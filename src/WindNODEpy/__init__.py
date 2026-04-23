@@ -5,7 +5,6 @@ from .node import (
     NeuralODERegressor,
     ODEFunc,
     RK4Block,
-    check_onnx_model,
     evaluate_model,
     export_onnx_model,
     get_device,
@@ -16,20 +15,36 @@ from .node import (
     train_model,
 )
 
+from .cnn import (
+    CNNDataBundle,
+    WindCNNRegressor,
+    evaluate_cnn_model,
+    export_cnn_onnx_model,
+    load_and_preprocess_cnn_data,
+    train_cnn_model,
+    check_onnx_model,
+)
+
 __all__ = [
     "DEFAULT_FEATURE_COLS",
     "DEFAULT_TARGET_COL",
     "DataBundle",
+    "CNNDataBundle",
     "NeuralODERegressor",
+    "WindCNNRegressor",
     "ODEFunc",
     "RK4Block",
-    "check_onnx_model",
     "evaluate_model",
+    "evaluate_cnn_model",
     "export_onnx_model",
+    "export_cnn_onnx_model",
     "get_device",
     "load_and_preprocess_data",
+    "load_and_preprocess_cnn_data",
     "regression_accuracy_percent",
     "save_pickle",
     "set_seed",
     "train_model",
+    "train_cnn_model",
+    "check_onnx_model",
 ]
