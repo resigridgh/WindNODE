@@ -127,6 +127,7 @@ ax.plot(
     df_sorted["wind speed (m/s)"],
     df_sorted["theoretical_power_curve (kwh)"],
     linewidth=2,
+    color="black",
     label="Theoretical Power Curve"
 )
 
