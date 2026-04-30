@@ -1,3 +1,49 @@
+# HW 01: Gradient Descent and Optimization
+
+---
+
+## Step 1. Clone the Repository
+
+```bash
+git clone https://github.com/resigridgh/resigrid01.git
+cd resigrid01
+```
+
+---
+
+## Step 2. Create and Activate a Virtual Environment
+
+# first to clone this repo and synchronize all the necessary package
+```bash
+uv venv --python 3.12
+source .venv/bin/activate
+uv sync
+uv build
+```
+## Step 3. Run the bash script
+```bash
+cd Script
+chmod +x binary_classh.sh
+nohup ./binary_classh.sh > training_log.out 2>&1 &
+```
+### 
+
+
+# Output
+A file is generated with the format in the Scripts folder:
+
+crossentropyloss_YYYYMMDDhhmmss.pdf
+
+This file shows training loss versus epochs.
+
+
+
+
+
+
+
+
+
 # WindNODE: Wind Turbine Power Prediction using Neural ODE
 
 ## 📌 Project Overview
