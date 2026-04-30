@@ -1,12 +1,12 @@
-# HW 01: Gradient Descent and Optimization
+# How To Run the Project
 
 ---
 
 ## Step 1. Clone the Repository
 
 ```bash
-git clone https://github.com/resigridgh/resigrid01.git
-cd resigrid01
+git clone https://github.com/resigridgh/WindNODE.git
+cd WindNODE
 ```
 
 ---
@@ -20,27 +20,52 @@ source .venv/bin/activate
 uv sync
 uv build
 ```
-## Step 3. Run the bash script
+## Step 3. Data Visualization
+```
+cd WindNODE/src/WindNODEpy
+python dataviz.py
+```
+### To realize the dataset, go to 
+```
+cd WindNODE/outputs/data_viz
+```
+
+## Step 4. Run the bash script
+
+### Run CNN
 ```bash
 cd Script
-chmod +x binary_classh.sh
-nohup ./binary_classh.sh > training_log.out 2>&1 &
+chmod +x run_cnn_impl.sh
+./run_cnn_impl.sh
 ```
-### 
+### Run LSTM
+```
+cd Script
+chmod +x run_lstm_impl.sh
+./run_lstm_impl.sh
+```
 
+### Run Neural ODE
+```
+cd Script
+chmod +x run_node_impl.sh
+./run_node_impl.sh
+```
 
-# Output
-A file is generated with the format in the Scripts folder:
+## To observe CNN results, go to 
+```
+cd WindNODE/outputs/cnn
+```
 
-crossentropyloss_YYYYMMDDhhmmss.pdf
+## To observe LSTM results, go to 
+```
+cd WindNODE/outputs/lstm
+```
 
-This file shows training loss versus epochs.
-
-
-
-
-
-
+## To observe Neural ODE results, go to 
+```
+cd WindNODE/outputs/node
+```
 
 
 
